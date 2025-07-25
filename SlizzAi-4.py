@@ -8,7 +8,8 @@ import time
 # Set the maximum recursion depth to avoid infinite recursion
 sys.setrecursionlimit(10000)
 sys.path.append(os.path.join(os.path.dirname(__file__), 'modules'))
-
+#...
+# slizzai_4.py
 # Module imports
 from orbital_orchestrator import OrbitalOrchestrator
 from terrain_dyno import TerrainDyno
@@ -21,14 +22,33 @@ from quark_analytics import QuarkAnalytics
 from pylon_security import PylonSecurity
 from mk_model import MKModel
 from renderer import Renderer
-
-# Logging configuration
+from quark_analytics import QuarkAnalytics
+# slizzai_4.py
+# Ensure the logs directory exists
+if not os.path.exists('logs'):
+    os.makedirs('logs')
+    logging.info("�� Logs directory created.")
+    # Logging configuration
 logging.basicConfig(
     filename='logs/slizzai.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
-
+# slizzai_4.py
+# Initialize logging
+logging.info("🌌 SlizzAi-4 Ritual Sequence Initiated"
+             "with the following parameters:")
+logging.info("🎨 Renderer:")
+logging.info("    - Resolution: 1920x1080")
+logging.info("    - FPS: 60")
+logging.info("    - Frames: 100")
+logging.info("    - Background Color: Black")
+logging.info("    - Background Image: None")
+logging.info("    - Background Loop: False")
+logging.info("    - Background Fade: 0.0")
+logging.info("    - Background Fade Duration: 0.0")
+logging.info("    - Background Fade Direction: None")
+logging.info("   - Output Directory: ./output")
 def main():
     logging.info("🌌 SlizzAi-4 Ritual Sequence Initiated")
 
