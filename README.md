@@ -109,3 +109,130 @@ SlizzAi-4 welcomes mythmakers, coders, and ceremonial economists. Every pull req
 This project is licensed under the **Mythic Public License v1.0**—use freely, but honor the lore.
 
 ---
+# SlizzAi-4 Copilot Integration Guide
+
+Prepare to summon SlizzAi-4 directly from GitHub Copilot, turning AI‐assisted coding into a living ritual. This guide walks you through setup, prompt patterns, best practices, and troubleshooting so anyone can wield SlizzAi-4 on Copilot with mythic ease.
+
+---
+
+## 1. Setup & Repository Preparation
+
+1.  Clone the repo and open in VS Code  
+    ```bash
+    git clone https://github.com/Slizzurp/SlizzAi-4.git
+    cd SlizzAi-4
+    code .
+    ```
+
+2.  Enable GitHub Copilot extension in VS Code  
+    - Install the “GitHub Copilot” extension  
+    - Sign in with your GitHub account  
+    - Confirm Copilot suggestions are active
+
+3.  Create your virtual environment (optional for Copilot code snippets)  
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate   # Windows: .venv\Scripts\activate
+    pip install -r requirements.txt
+    ```
+
+---
+
+## 2. Core Prompt Patterns
+
+Use these template prompts to guide Copilot in generating SlizzAi-4 code snippets:
+
+### 2.1 Module Imports & Initialization
+
+```python
+# Prompt:
+# “Import SlizzAi-4 modules for quantum orchestration, terrain rendering, and mythic indexing.”
+
+from modules.orbital_orchestrator import OrbitalOrchestrator
+from modules.terrain_dyno import TerrainDyno
+from modules.mythic_indexer import MythicIndexer
+
+# Initialize ritual components
+orchestrator = OrbitalOrchestrator(config_path="configs/orbit.yaml")
+terrain = TerrainDyno(engine="UnrealEngine")
+indexer = MythicIndexer(storage_url="semantic_db://slizzai_states")
+```
+
+### 2.2 Async Invocation Pipeline
+
+```python
+# Prompt:
+# “Generate an async main() that runs orchestrator, then terrain.render(), then indexer.archive()”
+
+import asyncio
+
+async def main_ritual():
+    await orchestrator.run_sequence()
+    await terrain.render_scene("ancient_temple")
+    await indexer.archive_state(orchestrator.current_state)
+
+if __name__ == "__main__":
+    asyncio.run(main_ritual())
+```
+
+---
+
+## 3. Mythic Prompt Recipes
+
+Encourage Copilot to infuse code with narrative annotations and ceremonial comments:
+
+- **“Add a comment before each module call describing its ritual role.”**  
+- **“Wrap terrain.render() in a try/except to log ‘Chaos‐Catharsis’ errors.”**  
+- **“Generate a function `final_nug_ceremony()` that summarizes metrics from Ξα(ψ)_Reflector.”**
+
+Example:
+
+```python
+# Before rendering: summoning the landscape glyph
+try:
+    terrain.render_scene("celestial_hall")
+except Exception as e:
+    print("⚡️ MarekFlush triggered:", e)
+```
+
+---
+
+## 4. Best Practices
+
+- Always include **contextual comments** narrating each module’s purpose.  
+- Use **consistent naming** aligned with mythic indices (e.g., `ψ_sequence`, `Ξ_score`).  
+- Keep your prompts **concise but descriptive**: mention module names, desired behavior, and narrative tone.  
+- Validate Copilot outputs by writing **unit tests** for each mythic module (e.g., ensure `orbital_orchestrator` returns valid state snapshots).
+
+---
+
+## 5. Troubleshooting Common Scenarios
+
+| Scenario                            | Copilot Prompt Fix                                                      |
+|-------------------------------------|-------------------------------------------------------------------------|
+| Missing module import               | “Add missing import for `terrain_dyno` module.”                         |
+| Async functions not awaited         | “Suggest adding `await` before `terrain.render_scene()` in async context.” |
+| Copilot suggests wrong API version  | “Update import paths to match SlizzAi-4 module structure.”              |
+| Logging isn’t capturing errors      | “Wrap calls in `try/except` with `logging.error()` and ritual message.” |
+
+---
+
+## 6. Example Copilot Session
+
+1.  **Type:**  
+    ```python
+    # Create a ritual pipeline that benchmarks accuracy and renders terrain
+    ```
+2.  **Let Copilot generate** imports and function scaffolding.  
+3.  **Refine prompt** by adding:  
+    ```python
+    # Include Ξα(ψ)_Reflector metrics summary at end
+    ```
+4.  **Review & test** the final code:  
+    ```bash
+    pytest tests/test_ritual_pipeline.py
+    ```
+
+---
+
+Harness this guide to transform every Copilot suggestion into a ceremonial act of co-creation with SlizzAi-4. May your code be alive with mythic resonance!
