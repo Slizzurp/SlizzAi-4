@@ -4,8 +4,6 @@
 
 > 🕙 **Public Launch:** July 25, 2025, 6:00 PM EDT
 > (4 Hours ahead of schedule) 
-> 🔮 **Ceremonial Window:** 9:00–10:00 PM EDT  
-> 📍 **Node Activation:** Times Square Beacon, Earth
 
 ---
 
