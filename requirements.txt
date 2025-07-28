@@ -1,4 +1,0 @@
-qiskit
-numpy
-opencv-python
-matplotlib
