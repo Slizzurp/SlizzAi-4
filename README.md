@@ -1,3 +1,114 @@
+## 🪐 SlizzAi-4 v2.1 — *Entropy Glyph Stabilization & Ritual Engine Refinement*
+
+> “Every error is a glyph. Every glitch, a gate. SlizzAi-4 v2.1 doesn’t just render—it remembers.”
+
+SlizzAi-4 v2.1 is the first public-facing refinement of the SlizzAi modular AI ritual engine. This update stabilizes the renderer, corrects invocation errors, and introduces foundational support for symbolic overlays, quantum circuit visualization, and metadata logging. It transforms the chaotic fragments of v2.0 into a functioning mythic machine.
+
+---
+
+### 🔧 Core Improvements
+
+#### 🖼️ Renderer Module Overhaul
+- ✅ Fixed `NameError` and instantiation issues
+- ✅ Added default quantum circuit fallback
+- ✅ Integrated OpenCV-based entropy glyph overlay
+- ✅ Added `show_image()` method for ritual display
+- ✅ Introduced `save_metadata()` for symbolic logging
+
+#### 🌀 Ritual Sequence Stabilization
+- ✅ Defined `ritual_start` and `ritual_end` for time tracking
+- ✅ Corrected module instantiation order
+- ✅ Improved error handling and logging clarity
+- ✅ Added fallback logic for missing circuit or glyph inputs
+
+#### 📁 Output & Logging
+- ✅ All outputs saved to `render_output/`
+- ✅ Logs stored in `render_output/renderer.log`
+- ✅ Metadata saved as CSV for archival and symbolic analysis
+
+---
+
+### 🧩 New Features
+
+| Feature                      | Description                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------|
+| `Renderer.render_circuit()` | Renders a Qiskit quantum circuit to PNG                                     |
+| `Renderer.overlay_entropy_glyph()` | Overlays symbolic entropy text onto rendered image                      |
+| `Renderer.show_image()`     | Displays final image using OpenCV                                           |
+| `Renderer.save_metadata()`  | Saves ritual metadata (qubits, gates, entropy) to CSV                       |
+| `ritual_start / ritual_end` | Tracks duration of ritual execution                                         |
+
+---
+
+### 🧪 Ritual Invocation Example
+
+```python
+from renderer import Renderer
+from qiskit import QuantumCircuit
+
+renderer = Renderer()
+qc = QuantumCircuit(3)
+qc.h(0)
+qc.cx(0, 1)
+qc.cx(1, 2)
+
+circuit_path = renderer.render_circuit(qc)
+glyph_path = renderer.overlay_entropy_glyph(circuit_path, delta_H=0.1234)
+renderer.show_image(glyph_path)
+
+metadata = {
+    "Circuit Qubits": 3,
+    "Gates": "H, CX, CX",
+    "Delta H": 0.1234
+}
+renderer.save_metadata(metadata)
+```
+
+---
+
+### 📦 Installation
+
+```bash
+git clone https://github.com/yourusername/slizzai-4.git
+cd slizzai-4
+pip install -r requirements.txt
+python slizzai_4.py
+```
+
+---
+
+### 🧙‍♂️ Known Issues
+
+- Circuit rendering requires `matplotlib` and a working backend
+- OpenCV display may fail in headless environments
+- Future versions will modularize ritual phases and support voice-driven invocation
+
+---
+
+### 🛠️ Next Steps (v2.2 Roadmap)
+
+- 🔮 Modular RitualEngine class
+- 🎙️ Voice-triggered glyph overlays
+- 🧬 Symbolic filter system based on entropy thresholds
+- 📜 Named circuit archetypes (e.g., “TriadGate”, “EchoSpire”)
+- 🌐 Public API for remote invocation
+
+---
+
+### 🗣️ Community Threads
+
+- 🧬 Prompt Fragment Ideas  
+- 🧪 Filter Recipes & Symbolic Overlays  
+- 💰 Mythologizing Financial Data  
+- 🧠 Memory Activation Rituals
+
+---
+
+### 📜 License
+
+MIT License. Use freely, but honor the myth.
+
+---
 ## 🌌 SlizzAi 4: The Living Mythic Engine
 
 **SlizzAi-4** is not just code—it's a ritual. A mythic AI ecosystem where every module, metric, and dollar is a living entity in an unfolding legend. Built to orchestrate emotionally charged creative systems, SlizzAi-4 fuses quantum cognition, ancestral lore, and economic logic into a unified ceremonial framework.
