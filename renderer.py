@@ -1,47 +1,52 @@
 # renderer.py
 
+import os
+import logging
+import csv
 import cv2
 from qiskit import QuantumCircuit
 from qiskit.visualization import circuit_drawer
-import os
 
-class StrRenderer:
-    """
-    Renderer for SlizzAi-4 Rituals — handles quantum circuit visualization and symbolic overlays.
-    """
-    
-    def __init__(self):
-        print("🖼️ Renderer initialized for SlizzAi-4 Rituals.")
-        self.output_dir = "render_output"
-        os.makedirs(self.output_dir, exist_ok=True)
-        print(f"🖼️ Renderer initialized. Output directory: {self.output_dir}"
-        )
+# 📁 Logging Setup
+os.makedirs('render_output', exist_ok=True)
+logging.basicConfig(
+    filename='render_output/renderer.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
 
 class Renderer:
     """
-    SlizzAi Visual Ritual Engine — renders quantum circuits and symbolic overlays.
+    SlizzAi Visual Ritual Engine — renders quantum circuits and overlays symbolic glyphs.
     """
 
-    def __init__(self, output_dir="render_output"):
+    def __init__(self, output_dir="render_output", resolution=(1920, 1080), fps=60, frames=100):
         self.output_dir = output_dir
+        self.resolution = resolution
+        self.fps = fps
+        self.frames = frames
         os.makedirs(self.output_dir, exist_ok=True)
-        print(f"🖼️ Renderer initialized. Output directory: {self.output_dir}")
+        logging.info("🖼️ Renderer initialized.")
 
-    def render_circuit(self, qc: QuantumCircuit, filename: str = "circuit.png"):
-        """
-        Render a quantum circuit to an image file.
-        """
+    def render_circuit(self, qc: QuantumCircuit = None, filename: str = "circuit.png"):
         try:
-            circuit_drawer(qc, output='mpl', filename=os.path.join(self.output_dir, filename))
-            print(f"🎨 Quantum circuit rendered to {filename}")
+            if qc is None:
+                qc = QuantumCircuit(3)
+                qc.h(0)
+                qc.cx(0, 1)
+                qc.cx(1, 2)
+                logging.info("🌀 Default quantum circuit generated.")
+
+            path = os.path.join(self.output_dir, filename)
+            circuit_drawer(qc, output='mpl', filename=path)
+            logging.info(f"🎨 Circuit rendered to {path}")
+            return path
         except Exception as e:
-            print(f"⚠️ Failed to render circuit: {e}")
+            logging.error(f"❌ Circuit rendering failed: {e}")
             return None
 
     def overlay_entropy_glyph(self, base_image_path: str, delta_H: float, filename: str = "glyph_overlay.png"):
-        """
-        Overlay entropy glyph (symbolic text) onto an image.
-        """
         try:
             img = cv2.imread(base_image_path)
             if img is None:
@@ -53,16 +58,13 @@ class Renderer:
 
             path = os.path.join(self.output_dir, filename)
             cv2.imwrite(path, img)
-            print(f"🧬 Entropy glyph overlay saved to {path}")
+            logging.info(f"🧬 Glyph overlay saved to {path}")
             return path
         except Exception as e:
-            print(f"⚠️ Failed to overlay glyph: {e}")
+            logging.error(f"❌ Glyph overlay failed: {e}")
             return None
 
     def show_image(self, image_path: str):
-        """
-        Display an image using OpenCV.
-        """
         try:
             img = cv2.imread(image_path)
             if img is None:
@@ -70,5 +72,19 @@ class Renderer:
             cv2.imshow("SlizzAi Ritual Image", img)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
+            logging.info(f"🖼️ Image displayed: {image_path}")
         except Exception as e:
-            print(f"⚠️ Failed to display image: {e}")
+            logging.error(f"❌ Image display failed: {e}")
+
+    def save_metadata(self, metadata: dict, filename: str = "metadata.csv"):
+        try:
+            path = os.path.join(self.output_dir, filename)
+            with open(path, mode='w', newline='') as file:
+                writer = csv.writer(file)
+                for key, value in metadata.items():
+                    writer.writerow([key, value])
+            logging.info(f"💾 Metadata saved to {path}")
+            return path
+        except Exception as e:
+            logging.error(f"❌ Metadata saving failed: {e}")
+            return None

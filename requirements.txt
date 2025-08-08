@@ -2,3 +2,14 @@ qiskit
 numpy
 opencv-python
 matplotlib
+torch>=2.1.0
+transformers>=4.40.0
+diffusers>=0.27.0
+bitsandbytes
+fastapi
+uvicorn
+Pillow
+numpy
+pytest
+opencv-python
+qiskit
